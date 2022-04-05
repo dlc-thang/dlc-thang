@@ -6,9 +6,100 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: #102A43;
+  word-wrap: break-word;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.button {
+  background-color: #000000;
+  color: #FFFFFF;
+  padding: 10px;
+  border-radius: 10px;
+  -moz-border-radius: 10px;
+  -webkit-border-radius: 10px;
+  margin: 10px
+}
+
+.small-btn {
+  width: 50px;
+  height: 25px;
+}
+
+.medium-btn {
+  width: 70px;
+  height: 30px;
+}
+
+.big-btn {
+  width: 150px;
+  height: 50px;
+  margin: 10px;
+}
+
+.info-card {
+  background-color: whitesmoke;
+  margin-left: 100px;
+  width: 90%;
+  height: 20%;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.face-image {
+  height: 100px;
+  width: 100px;
+}
+
+.name-face-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+
+.main-container {
+  display: flex;
+  justify-content: space-between;
+}
+
+.psbt-card {
+  background-color: whitesmoke;
+  width: 500px;
+  height: 80%;
+  border-radius: 5px;
+  padding: 25px;
+  margin: 25px;
+
+}
+
+.inner-card {
+  padding: 25px;
 }

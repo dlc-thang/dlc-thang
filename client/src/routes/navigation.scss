@@ -3,12 +3,12 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  margin-bottom: 25px;
   background-color: #334E68;
+  margin-bottom: 5px;
 
-  .logo-container {
-    height: 100%;
-    padding: 25px;
+  .home-link {
+    display: flex;
+    align-items: center;
     color: whitesmoke;
   }
 

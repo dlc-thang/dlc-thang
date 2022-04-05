@@ -2,8 +2,8 @@ import { Routes, Route } from 'react-router-dom';
 import Navigation from './routes/Navigation';
 import Home from "./routes/Home";
 import Users from "./routes/Users";
-import Coordinator from "./routes/Coordinator";
-
+import Oracle from "./routes/Oracle";
+import { useState } from "react";
 function App() {
 
   return (
@@ -14,8 +14,8 @@ function App() {
       <Route path='/users' element={<Navigation />}>
         <Route index element={<Users />} />
       </Route>
-      <Route path='/coordinator' element={<Navigation />}>
-        <Route index element={<Coordinator />} />
+      <Route path='/oracle' element={<Navigation />}>
+        <Route index element={<Oracle />} />
       </Route>
     </Routes>
   );

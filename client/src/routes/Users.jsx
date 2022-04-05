@@ -1,45 +1,75 @@
 import { useState } from "react";
 import { Outlet } from 'react-router-dom';
 import './users.scss';
+import UserInfo from "../components/UserInfo";
+import PSBT from "../components/PSBT";
+
+const users = [
+  {
+    "name": "Alice",
+    "subtitle": "in Wonderland",
+    "txid": "fcf850f1dbcefcc690144d96e385cb0c3d1a9f523e2d4d2cf833f4ae4dc9c3fc",
+    "vout": 0,
+    "face": "/alice-face.png",
+  },
+  {
+    "name": "Bob",
+    "subtitle": "the Builder",
+    "txid": "8625a4f367220761493ff9c5932b6042389eac060cbd62b700fec37a397cf6fe",
+    "vout": 0,
+    "face": "/bob.jpg"
+  },
+  {
+    "name": "Charlie",
+    "txid": "dad837b8a3324d6c084420bf26d3c1277cfa0afc9263320a01dac315274c82a6",
+    "vout": 0,
+    "subtitle": "Brown",
+    "face": "/charlie.jpeg"
+  },
+  {
+    "name": "Dave",
+    "subtitle": "Breakfast Can Wait",
+    "txid": "206a327bba33f9550acbc5614b1b9654b46327c52824b8462db16330e74e18d9",
+    "vout": 0,
+    "face": "/dave.webp"
+  },
+  {
+    "name": "Oracle",
+    "subtitle": "Incentivized to not Equivocate",
+    "face": "/oracle.webp"
+  }
+];
 
 const Users = () => {
 
-  const users = [
-    {
-      "name": "Alice",
-      "address": "tb1q499hrrgz8uep4l5vqymfjw7vxp3u69ql547eju",
-      "pubkey": "03adf0d2e6138e26a617326837924ae54bd9a5082c7832cd8ac389700bf9751e78",
-      "hidden_service_address": "",
-    },
-    {
-      "name": "Bob",
-      "address": "tb1q4ufl6t323d7swa6kah3qlq6wl32lr9x2t8d5k8",
-      "pubkey": "0227eefedbea0ab5751c0f8a996dd3cddcd9c9b67917815099bfdb59279fba1bcf",
-      "hidden_service_address": "",
-    },
-    {
-      "name": "Charlie",
-      "address": "tb1qaqslw9325a5s9twkcc5mfftj2qx9erksvk52tk",
-      "pubkey": "03157d4db086d2097a14c0f38140f271f5c7ad1c78fc9742e688291163f43483fd",
-      "hidden_service_address": "",
-    },
-    {
-      "name": "Dana",
-      "address": "tb1qqj9waxmrlwazz5gregpsx69gf2vdukzz0yr4kr",
-      "pubkey": "03494d04e650ef1981fd9554e4751fd6f8dc04593ccbdec9a88132c0c3c883e9ec",
-      "hidden_service_address": "",
-    }
-  ];
+  const [inputs, setInputs] = useState([]);
 
-  const [currUser, setCurrUser] = useState(users[0]);
+  const [output, setOutput] = useState('');
+
+  const [psbt, setPSBT] = useState({});
+
+  const handleSetInputs = (input) => {
+    setInputs([...inputs, input]);
+  }
+
+  const handleSetOutput = (output) => {
+    setOutput(output);
+  }
+
+  const handleSetPSBT = (updated_psbt) => {
+    setPSBT(updated_psbt);
+  }
 
   return (
-    <div>
-      <Outlet />
-      <div className="usernames-container">
+    <div className="main-container">
+      <div>
+        <Outlet />
         {users.map(user => (
-          <button onClick={() => setCurrUser(user.name)}>{user.name}</button>
+          <UserInfo user={user} setInput={handleSetInputs} setOutput={handleSetOutput} />
         ))}
+      </div>
+      <div>
+        <PSBT inputs={inputs} psbt={psbt} output={output} />
       </div>
     </div>
   );
