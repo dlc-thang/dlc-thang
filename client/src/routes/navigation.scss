@@ -2,12 +2,14 @@
   height: 70px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   margin-bottom: 25px;
+  background-color: #334E68;
 
   .logo-container {
     height: 100%;
     padding: 25px;
+    color: whitesmoke;
   }
 
   .nav-links-container {
@@ -20,6 +22,7 @@
     .nav-link {
       padding: 10px 15px;
       cursor: pointer;
+      color: whitesmoke;
     }
   }
 }

@@ -2,7 +2,7 @@ import { Fragment } from "react";
 import { Outlet, Link } from "react-router-dom";
 import './navigation.scss';
 
-const Navigation = () => {
+const Navigation = ({ users }) => {
   return (
     <Fragment>
       <div className="navigation">
@@ -10,8 +10,8 @@ const Navigation = () => {
           DLC Thang
         </Link>
         <div className="nav-links-container">
-          <Link className='nav-link' to='/'>
-            User
+          <Link className='nav-link' to='/users'>
+            Users
           </Link>
           <Link className='nav-link' to='/coordinator'>
             Coordinator
