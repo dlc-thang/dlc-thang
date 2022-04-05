@@ -1,0 +1,12 @@
+tr(nums, {
+   and_v(
+     v:multi_a(1, oracle),
+     after(2016)
+   ), {
+     multi_a(5, alice, bob, charlie, dave, oracle),
+     and_v(
+       v:multi_a(4, alice, bob, charlie, dave),
+       older(4032)
+     )
+   }
+})

@@ -1,0 +1,23 @@
+Install descriptor-wallet:
+
+$ git clone https://github.com/LNP-BP/descriptor-wallet.git
+$ cd descriptor-wallet
+$ cargo install --path . --locked --all-features
+
+Create a wallet seed:
+
+$ btc-hot seed -P $SEED_FILE
+
+Derive an xpriv for a seed and network:
+
+$ btc-hot derive --$NETWORK -P $SEED_FILE $XPRIV_FILE
+
+Create a watch-only wallet from a descriptor:
+
+$ btc-cold create --account-file $ACC_FILE $DESC_FILE $WALLET_DESC_FILE
+
+Compute addresses for the watch-only wallet:
+
+$ btc-cold address $WALLET_DESC_FILE
+
+Ready to send!
